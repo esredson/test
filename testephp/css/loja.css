@@ -1,0 +1,6 @@
+.descricao {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 60vh;
+    text-overflow: ellipsis;
+}
