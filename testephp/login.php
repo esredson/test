@@ -10,7 +10,8 @@ if($usuario != null){
     logaUsuario($usuario);
     //setcookie("usuario_logado",$usuario['login']);
 
-}header("Location:index.php");
+}
 
- 
+header("Location:index.php");
+
 ?>

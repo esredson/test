@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">    
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/loja.css" />
-    <title><?=$title ? $title : TITLE ?> </title> 
+    <title><?=isset($title) ? $title : TITLE ?> </title> 
 </head>
 <body>
     <main class="container">

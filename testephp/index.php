@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 require_once("logica-usuario.php") ;
 require_once("cabecalho.php") ;
 if(usuarioEstaLogado()){ 
