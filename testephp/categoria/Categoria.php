@@ -2,7 +2,6 @@
     class Categoria {
         private $id;
         private $nome;         
-    
 
         function getId() {
             return $this->id;
@@ -10,6 +9,7 @@
 
         function setId($id) {
             $this->id = $id;
+            return $this;
         }
         
         function getNome() {
@@ -18,6 +18,7 @@
 
         function setNome($nome) {
             $this->nome = $nome;
+            return $this;
         }
 
         function toJSON(){

@@ -14,6 +14,7 @@
 
         function setId($id) {
             $this->id = $id;
+            return $this;
         }
 
         function getNome() {
@@ -22,6 +23,7 @@
 
         function setNome($nome) {
             $this->nome = $nome;
+            return $this;
         }
 
         function getPreco() {
@@ -30,6 +32,7 @@
 
         function setPreco($preco) {
             $this->preco = $preco;
+            return $this;
         }
 
         function getDescricao() {
@@ -38,14 +41,16 @@
 
         function setDescricao($descricao) {
             $this->descricao = $descricao;
+            return $this;
         }
 
-        function getUsado() {
+        function isUsado() {
             return $this->usado;
         }
 
         function setUsado($usado) {
-            $this->usado = $usado;
+            $this->usado = $usado ? 1 : 0;
+            return $this;
         }
 
         function getCategoria() {
@@ -54,6 +59,7 @@
 
         function setCategoria($categoria) {
             $this->categoria = $categoria;
+            return $this;
         }
 
         function temIsbn(){
