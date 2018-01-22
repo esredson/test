@@ -1,11 +1,16 @@
 <?php
 class Usuario {
+    private $id;
     private $login;
-    private $senhaMD5;
+    private $senha;
 
-    function __construct($login, $senha){
-        $this->setLogin($login);
-        $this->setSenha($senha);
+    function getId(){
+        return $this->id;
+    }
+
+    function setId($id){
+        $this->id = $id;
+        return $this;
     }
 
     function getLogin() {
@@ -18,11 +23,11 @@ class Usuario {
     }
 
     function getSenha() {
-        return $this->senhaMD5;
+        return $this->senha;
     }
     
     function setSenha($senha) {
-        $this->senhaMD5 = md5($senha);
+        $this->senha = md5($senha);
         return $this;
     }
 }

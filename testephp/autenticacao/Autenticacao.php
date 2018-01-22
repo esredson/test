@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../usuario/UsuarioDao.php');
+require_once('../db/DaoFactory.php');
 class Autenticacao {
 
     function verificarSeEstahLogado(){
@@ -12,7 +12,7 @@ class Autenticacao {
     }
 
     function logar($usuario){
-        $u = (new UsuarioDao())->buscar($usuario);
+        $u = DaoFactory::get()->dao()->buscarUm($usuario);
         if ($u != null) {
             $_SESSION['usuario_logado']=$u->getLogin();
         } else {

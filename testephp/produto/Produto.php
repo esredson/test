@@ -1,4 +1,5 @@
 <?php
+require_once('../categoria/Categoria.php');
     class Produto {
         private $id;
         private $nome;
@@ -7,6 +8,9 @@
         private $usado;
         private $categoria;
     
+        function __construct(){
+            $this->setCategoria(new Categoria());
+        }
 
         function getId() {
             return $this->id;

@@ -1,18 +1,18 @@
 <?php   
     require_once("../autenticacao/verificar.php");
-    $titulo="Produtos";
+    $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : null;
+    $titulo=is_null($id) ? "Novo Produto" : "Alterar Produto";
     require_once("../cabecalho.php");
     require_once('Produto.php');
-    require_once('ProdutoDao.php');
     require_once('../categoria/Categoria.php');
-    require_once('../categoria/CategoriaDao.php');
+    require_once('../db/DaoFactory.php');
 
-    $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : null;
-    $produto = is_null($id) ? new Produto() : (new ProdutoDao())->buscar($id);
-    $categorias= (new CategoriaDao())->listar();
+  
+    $produto = is_null($id) ? new Produto() : DaoFactory::get()->dao()->buscarUm((new Produto())->setId($id));
+    $categorias = DaoFactory::get()->dao()->listar(new Categoria());
 ?>
    
-<h1 class="text-center"><?=is_null($id) ? "Novo Produto" : "Alterar Produto" ?></h1>
+<h1 class="text-center"><?=$titulo ?></h1>
  
 <form method="Post" action="produto_editar_gravar.php">
     <input type="hidden" name="id" value="<?=$id?>">
@@ -37,7 +37,7 @@
         <label>Categoria:</label>
         <select class="form-control" name="categoria_id">
             <?php foreach ($categorias as $categoria) { 
-                $selected = null !== $produto->getCategoria() && $produto->getCategoria()->getId() == $categoria->getId();
+                $selected = $produto->getCategoria()->getId() == $categoria->getId();
             ?>
                 <option <?=$selected ? "selected" : ""?> value="<?=$categoria->getId()?>"><?=$categoria->getNome()?></option>
             <?php } ?>
